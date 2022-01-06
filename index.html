@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body>
-
-<div ng-app="myApp" ng-controller="myCtrl">
-{{ firstName + " " + lastName }}
-</div>
-
-<script>
-var app = angular.module("myApp", []);
-app.controller("myCtrl", function($scope) {
-    $scope.firstName = "Rehan";
-    $scope.lastName = "Khan";
-});
-</script>
-
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body>
+        <div data-ng-app="" data-ng-init="quantity=1; price=34">
+            <h1>This is a simple calculator</h1>
+            Quantity<input type="number" ng-model="quantity"><br>
+            Price<input type="number" ng-model="price"><br>
+            The Total no is:{{quantity * price}}
+        </div>
+    </body>
 </html>
