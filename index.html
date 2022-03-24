@@ -1,12 +1,102 @@
 <!DOCTYPE html>
-<html>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <body>
-        <div data-ng-app="" data-ng-init="quantity=1; price=34">
-            <h1>This is a simple calculator</h1>
-            Quantity<input type="number" ng-model="quantity"><br>
-            Price<input type="number" ng-model="price"><br>
-            The Total no is:{{quantity * price}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid app</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="js/myapp.js"></script>
+
+</head>
+<body ng-app = "My app" ng-controller = "Myctrl">
+   <div class="container">
+ <div class="jumbotron py-3">
+     <h1 class="text-center">{{title}}</h1>
+     <p class="pt-3">Clean your home regularly, particularly frequently touched surfaces like.
+          Stay home stay safe. Stay physically fit.
+           Exercise regulary. Eat a nutritious diet.
+            Don’t smoke. Stay home stay safe. Follow the Golden Rule.
+             Wash your hands frequently with soap and water or use alchohol based hand-rub. 
+             Stay positive. Avoid alarmist news. Be connected to friends and family.
+              Have a hobby.Stay home stay safe. If you show symptoms of COVID-19, self isolate yourself, wear a mask around others and seek medical advice.
+              If any member of the household shows symptoms of Covid-19, seek medical advice and follow your local health authority's guidance.
+            
+     </p>
+
+     <div class="row text-center">
+         <div class="col-md-4">
+             <div class="card bg-warning text-white">
+                 <div class="card-body">
+                     <h3>Confirmed Cases</h3>
+                     <h3>{{all_data.confirmed.value}}</h3>
+                 </div>
+             </div>
+         </div>
+         <div class="col-md-4">
+         <div class="card bg-success text-white">
+            <div class="card-body">
+                <h3>Recovered Cases</h3>
+                <h3>{{all_data.recovered.value}}</h3>
+            </div>
+            </div>
         </div>
-    </body>
+         <div class="col-md-4">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h3>Deaths Cases</h3>
+                    <h3>{{all_data.deaths.value}}</h3>
+                </div>
+                </div> 
+         </div>
+     </div>
+
+       <input type="text"    
+        class="form-control mt-4"
+        placeholder="enter country here"   
+        ng-model="c"
+        ng-change="get_c_data()"
+       />  
+         
+        <div class="container-fluid"  ng-if="c_data">
+        <h1 class="text-center mt-4 text-uppercase">{{c}} status</h1>
+       <div class="row text-center mt-4>
+        <div class="col-md-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h3>Confirmed Cases</h3>
+                    <h3>{{c_data.confirmed.value}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        <div class="card bg-success text-white">
+           <div class="card-body">
+               <h3>Recovered Cases</h3>
+               <h3>{{c_data.recovered.value}}</h3>
+           </div>
+           </div>
+       </div>
+        <div class="col-md-4">
+           <div class="card bg-danger text-white">
+               <div class="card-body">
+                   <h3>Deaths Cases</h3>
+                   <h3>{{c_data.deaths.value}}</h3>
+               </div>
+               </div> 
+        </div>
+    </div>
+</div>
+
+
+ </div> 
+</div>
+</body>
 </html>
